@@ -5,12 +5,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>NetWork(2) - Hexo</title>
+    <title>NetWork(3) - Hexo</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="（1）网络协议 层次 接口等概念     1974年，美国的IBM公司宣布了系统网络体系结构SNA(System Network Architecture)     1977年，国际标准化组织ISO,"> 
+    <meta name="description" content="（1）物理层的功能和提供的服务用于物理层的协议也常称为物理层规程
+物理层功能概念是点到点的传输和点到广域网的传输
+物理层考虑的是怎样才能在连接各种计算机的传输媒体上传输数据比特流,而不是指具体的传输,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -38,7 +40,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
     <div title="播放/暂停" class="iconfont icon-play"></div>
-    <h3 class="subtitle">NetWork(2)</h3>
+    <h3 class="subtitle">NetWork(3)</h3>
     <div class="social">
         <div>
             <div class="share">
@@ -53,53 +55,82 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">NetWork(2)</h1>
+        <h1 class="title">NetWork(3)</h1>
         <div class="stuff">
-            <span>十一月 20, 2020</span>
+            <span>十一月 21, 2020</span>
             
   <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="tag">计算机网络</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <p>（1）网络协议 层次 接口等概念<br>     1974年，美国的IBM公司宣布了系统网络体系结构SNA(System Network Architecture)<br>     1977年，国际标准化组织ISO提出了开放系统互连参考模型OSI/RM(Open Systems Interconnection Reference Model)<br>     网络体系概念:计算机网络的各层及其协议的集合就是网络的体系结构<br>     网络体系结构接口概念：接口是同一节点内相邻层之间交换信息的连接点。</p>
-<pre><code> 网络协议主要由: 
-     1.语法,即数据与控制信息的结构或格式
-     2.语义,即需要发出何种控制信息,完成何种动作以及做出何种响应
-     3.同步,即事件实现顺序的详细说明</code></pre>
-<p>网络分层的原因:为了简化网络设计的复杂性,通信协议采用分层的结构,各层协议之间既互相独立又相               互高效的协调工作。对于复杂的通信协议,其结构应该是采用层次化。</p>
-<pre><code> 网络协议分层的好处:
-     1.各层之间是独立的
-     2.灵活性好
-     3.结构上可分割开
-     4.易于实现和维护
-     5.能促进标准化工作
-     各层要完成的功能:
-         1.差错控制 2.流量控制 3.分段和重装 4.复用和份用 5.连接建立和释放</code></pre>
-<p>（2）OSI TCP/IP体系结构及其各层功能<br><img src="/2020/11/20/NetWork-2/01.png"></p>
-<pre><code>应用层:通过应用进程间的交互来完成特定网络应用
-运输层:负责向两台主机中进程之间的通信提供通用的数据传输服务
-      运输层两种协议:
-          传输协议TCP--提供面向连接的 可靠的数据传输服务,其数据传输单位是报文段
-          用户数据报协议UDP--提供无连接的 尽最大努力的数据传输服务,其数据传输单位是用户数据报
-网络层:负责为分组交换网络上的不同主机提供通信服务
-数据链路层:在两个相邻结点间的链路上传送数据时,数据链路层将网络层交下来的IP数据报组装成帧,在两个相邻结点间的链路上传送帧
-物理层:传送的单位是比特</code></pre>
-<p><img src="/2020/11/20/NetWork-2/%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93.png"></p>
-<pre><code>A主机数据传输逐层向下封装,达到主机B后向上逐层解包
-其次协议是‘水平的’,即协议是控制对等实体之间通信的规则。但服务是‘垂直的’,即服务是由下层向上层通过层间接口提供的</code></pre>
-<p>（3）面向连接的服务和无连接的服务</p>
-<pre><code>面向连接TCP:数据传输过程前必须经过建立连接、维护连接和释放连接的3个过 程；
-在数据传输过程中，各分组不需要携带目的节点的地址。
-面向连接服务的传输连接类似于一个通信管道,发送者在一端放入数据，接受者从另一端取出数据。
-面向连接数据传输的收发数据顺序不变，因此传输的可靠性好，但需通信开始前的链接开销，协议复杂，通信效率不高。
-无连接UDP:就是通信双方不需要事先建立一条通信线路，而是把每个带有目的地址的包（报文分组）送到线路上，由系统选定路线进行传输。
-IP、UDP协议就是一种无连接协议，邮政系统是一个无连接的模式。 </code></pre>
-<p>（4）TCP/IP体系结构的主要协议</p>
-<pre><code>(1)数据链路层常用协议是ARP和RARP
-(2)网络层主要用的协议是IP协议和ICMP协议
-(3)传输层的主要协议有TCP协议，UDP协议，SCTP协议
-(4)应用层协议很多，比如ping,telnet,OSPE,DNS</code></pre>
+            <p>（1）物理层的功能和提供的服务<br>用于物理层的协议也常称为物理层规程</p>
+<p>物理层功能概念是点到点的传输和点到广域网的传输</p>
+<p>物理层考虑的是怎样才能在连接各种计算机的传输媒体上传输数据比特流,而不是指具体的传输媒体</p>
+<pre><code>物理层的特性:
+    1.机械特性 指明接口所用接线器的形状和尺寸.引脚数木和排序.固定和锁定装置等
+    2.电器特性 指明在接口电缆的各线条上出现的电压和范围
+    3.功能特性 指明某条线上出现的某一电平的电压的意义
+    4.过程特性 指明对于不同功能的各种可能事件的出现顺序    </code></pre>
+<p>（2）信息.数据与信号的概念</p>
+<p>通信系统有三大部分:源系统(或发送端.发送方),传输系统(或传输网络)和目的系统(或接收端.接收方)<br><img src="/2020/11/21/NetWork-3/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%9E%8B.png"></p>
+<pre><code>信息就是话音 文字 图像 视频等
+数据时运送消息的实体
+信号则是数据的电气或电磁的表现
+    信号有两大类:
+        模拟信号,或连续信号--代表消息的参数的取值是连续的
+        数字信号,或离散信号--代表消息的参数的取值是离散的
+        码元--在使用时间域的波形表示数字信号时,代表不同离散数值的基本波形</code></pre>
+<p>（3）数据传输类型与通信方式</p>
+<pre><code>数据传输有四种:
+    并行传输 在多条并行信道上同时传输
+    串行传输 主机与外设以及主机之间的数据传输
+    异步传输 
+    同步传输
+
+通信方式有三种:
+    单向通信 又称单工通信 即只能有一个方向的通信而没有反方向的交互。无线电广播或有线电广播以及电视广播
+    双向交替通信 又称半双工通信 即通信的双方都可以发送信息,但不能双方同时发送
+    双向同时通信 又称全双工通信 即通信的双方可以同时发送和接收信息</code></pre>
+<p>（4）传输介质的主要类型及其主要特点</p>
+<pre><code>传输介质:
+
+    双绞线 特点是传输距离远.传输质量高,布线方便.线缆利用率高,抗干扰能力强,可靠性高.使用方便,价格便宜
+    双绞线有两种:屏蔽双绞线和无屏蔽双绞线
+
+    同轴电缆 特点是抗干扰,传输速率高
+
+    光缆 特点
+        1.传输损耗小,中继距离长,对远距离传输特别经济
+        2.抗雷电和电磁干扰性能好
+        3.无串音干扰,保密性好,也不易被窃听或截取数据
+        4.体积小,重量轻</code></pre>
+<p>（5）数字数据的模拟编码方法（ASK、FSK、PSK等）</p>
+<pre><code>ASK(调幅AM) 即载波的振幅随基带数字信号而变化 如0或1分别对应无载波输出或有载波输出
+FSK(调频FM)    即载波的频率随系带数字信号而变化 如0或1代表频率间距大或小
+PSK(调相PM)    即载波的初始相位随基带数字信号而变化 如0或1代表相位0度或180度</code></pre>
+<p>   混合调制方法:正交振幅调制QAM</p>
+<p><img src="/2020/11/21/NetWork-3/%E6%A8%A1%E6%8B%9F%E7%BC%96%E7%A0%81.jpeg"></p>
+<p>（5）数字数据的数字编码方法（非归零NRZ、曼彻斯特编码、差分曼彻斯特编码）</p>
+<pre><code>不归零制 正电平代表1,负电平代表0
+归零制 正脉冲代表1,负脉冲代表0
+曼彻斯特编码 位周期中心的向上跳变表示0,位周期向下跳变表示1,也可以反过来
+差分曼彻斯特编码 在每一位的中心出初始都有跳变。位开始边界有跳变代表0,而为开始边界没有跳变代表1</code></pre>
+<p><img src="/2020/11/21/NetWork-3/%E6%95%B0%E5%AD%97%E7%BC%96%E7%A0%81.jpeg"></p>
+<p>（6）数据传输率、码元率、信道容量</p>
+<pre><code>信道的极限信息传输速率C:
+        C=W log2(1+S/N) (bit/s)
+        W为信道的带宽 S为信道内所传信号的平均功率 N为信道内部的高斯噪声功率
+信道的带宽或信道中的信噪比越大,信息的极限传输速率就越高
+
+码元率:10Mb/s就是10M波特
+码元速率，单位是波特。二进制数字传输中一个码元可携带一个bit，共有两个状态值</code></pre>
+<p>（7）多路复用技术</p>
+<pre><code>复用技术有三种:
+    1.频分复用 用户在同样的时间占用不同的带宽资源
+    2.时分复用 用户在不同的时间占用同样的频带宽度
+    3.波分复用</code></pre>
+<p><img src="/2020/11/21/NetWork-3/%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF.png"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
